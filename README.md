@@ -9,6 +9,8 @@
 - provides ODO snippets for faster template authoring
 - formats supported ODO syntax for cleaner, more consistent templates
 - includes Doppar-focused PHP snippets for framework attributes
+- loads Doppar global helpers into PHP completions and signature help
+- lets `Ctrl+Click` open helper definitions and `view('...')` targets
 - adds a Doppar file icon theme for ODO files
 
 ## How To Use
@@ -41,6 +43,8 @@ For Doppar PHP snippets, open a PHP file and type a Doppar prefix such as:
 - `doppar-to-array`
 
 Supported ODO formatting is applied through VS Code formatting, including `Format Document`, on-type formatting for supported syntax, and format-on-save when enabled for the language.
+
+In PHP files, the extension also indexes Doppar helper files from the workspace so helpers like `view()`, `response()`, `cache()`, `notify()`, and `broadcast()` show up with framework-aware signatures. `Go to Definition` on a Doppar helper jumps to the helper source, and `Go to Definition` on the first argument of `view('home')` opens the resolved file under `resources/views`.
 
 ## ODO Template Support
 

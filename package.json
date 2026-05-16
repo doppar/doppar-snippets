@@ -2,7 +2,7 @@
   "name": "doppar-snippets",
   "displayName": "Doppar Snippets",
   "description": "Snippets and ODO language support for the Doppar framework.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "doppar",
   "license": "SEE LICENSE IN LICENSE",
   "main": "./extension.js",
@@ -48,7 +48,8 @@
     "php"
   ],
   "activationEvents": [
-    "onLanguage:odo"
+    "onLanguage:odo",
+    "onLanguage:php"
   ],
   "contributes": {
     "languages": [

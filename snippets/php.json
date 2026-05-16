@@ -110,8 +110,8 @@
   },
   "Doppar Bind Attribute": {
     "prefix": "doppar-bind",
-    "body": "#[Bind(${1:ConcreteClass::class}, singleton: ${2:false})]",
-    "description": "Doppar #[Bind] parameter attribute."
+    "body": "#[Bind(${1:ConcreteClass::class}, ${2:false})] ${3:ContractInterface} $${4:service}",
+    "description": "Doppar #[Bind] parameter binding. The parameter type-hint is the abstract/interface; the attribute supplies the concrete and singleton flag."
   },
   "Doppar BindPayload Attribute": {
     "prefix": "doppar-bind-payload",
