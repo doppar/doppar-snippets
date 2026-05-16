@@ -1,0 +1,219 @@
+{
+  "Doppar Use Routing Attributes": {
+    "prefix": "doppar-use-routing-attrs",
+    "body": [
+      "use Phaseolies\\Utilities\\Attributes\\Mapper;",
+      "use Phaseolies\\Utilities\\Attributes\\Middleware;",
+      "use Phaseolies\\Utilities\\Attributes\\Resolver;",
+      "use Phaseolies\\Utilities\\Attributes\\Route;",
+      "use Phaseolies\\Utilities\\Attributes\\Throttle;",
+      "use Phaseolies\\Utilities\\Attributes\\Transaction;"
+    ],
+    "description": "Import common Doppar controller and routing attributes."
+  },
+  "Doppar Use Package Attributes": {
+    "prefix": "doppar-use-package-attrs",
+    "body": [
+      "use Doppar\\Airbend\\Support\\Attributes\\Broadcast;",
+      "use Doppar\\Queue\\Attributes\\Queueable;",
+      "use Phaseolies\\DI\\Attributes\\Immutable;"
+    ],
+    "description": "Import package-level Doppar ecosystem attributes."
+  },
+  "Doppar Use Binding Attributes": {
+    "prefix": "doppar-use-binding-attrs",
+    "body": [
+      "use Phaseolies\\Utilities\\Attributes\\Bind;",
+      "use Phaseolies\\Utilities\\Attributes\\BindPayload;",
+      "use Phaseolies\\Utilities\\Attributes\\Model;"
+    ],
+    "description": "Import Doppar binding and parameter attributes."
+  },
+  "Doppar Use Model Attributes": {
+    "prefix": "doppar-use-model-attrs",
+    "body": [
+      "use Phaseolies\\Database\\Entity\\Attributes\\Computed;",
+      "use Phaseolies\\Database\\Entity\\Attributes\\Hook;",
+      "use Phaseolies\\Database\\Entity\\Attributes\\Watches;",
+      "use Phaseolies\\Database\\Temporal\\Attributes\\Temporal;"
+    ],
+    "description": "Import Doppar model and temporal attributes."
+  },
+  "Doppar Use Cast Attributes": {
+    "prefix": "doppar-use-cast-attrs",
+    "body": [
+      "use Phaseolies\\Utilities\\Casts\\CastToDate;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToArray;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToBoolean;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToCollection;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToDate;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToDateTime;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToFloat;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToInteger;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToJson;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToObject;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToString;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\ToTimestamp;",
+      "use Phaseolies\\Database\\Entity\\Casts\\Attributes\\Transform;"
+    ],
+    "description": "Import Doppar model cast attributes."
+  },
+  "Doppar Mapper Attribute": {
+    "prefix": "doppar-mapper",
+    "body": "#[Mapper(prefix: '${1:users}', middleware: [${2:'auth'}])]",
+    "description": "Doppar #[Mapper] class attribute."
+  },
+  "Doppar Immutable Attribute": {
+    "prefix": "doppar-immutable",
+    "body": "#[Immutable]",
+    "description": "Doppar #[Immutable] service attribute."
+  },
+  "Doppar Broadcast Attribute": {
+    "prefix": "doppar-broadcast",
+    "body": "#[Broadcast(channels: ${1:'channel-name'}, as: ${2:null}, toOthers: ${3:false})]",
+    "description": "Airbend #[Broadcast] event attribute."
+  },
+  "Doppar Queueable Attribute": {
+    "prefix": "doppar-queueable",
+    "body": "#[Queueable(tries: ${1:null}, retryAfter: ${2:null}, delayFor: ${3:null}, onQueue: ${4:null}, timeout: ${5:null})]",
+    "description": "Queue #[Queueable] job attribute."
+  },
+  "Doppar Route Attribute": {
+    "prefix": "doppar-route",
+    "body": "#[Route('${1:/}', name: '${2:route.name}', methods: ['${3:GET}'])]",
+    "description": "Doppar #[Route] method or class attribute."
+  },
+  "Doppar Route Verb Attribute": {
+    "prefix": "doppar-route-post",
+    "body": "#[Route('${1:/}', name: '${2:route.name}', methods: ['POST'])]",
+    "description": "Doppar #[Route] POST shortcut."
+  },
+  "Doppar Middleware Attribute": {
+    "prefix": "doppar-middleware",
+    "body": "#[Middleware([${1:Authenticate::class}])]",
+    "description": "Doppar #[Middleware] attribute."
+  },
+  "Doppar Throttle Attribute": {
+    "prefix": "doppar-throttle",
+    "body": "#[Throttle(maxAttempts: ${1:60}, decayMinutes: ${2:1})]",
+    "description": "Doppar #[Throttle] attribute."
+  },
+  "Doppar Resolver Attribute": {
+    "prefix": "doppar-resolver",
+    "body": "#[Resolver(abstract: ${1:Contract::class}, concrete: ${2:Implementation::class}, singleton: ${3:true})]",
+    "description": "Doppar #[Resolver] attribute."
+  },
+  "Doppar Transaction Attribute": {
+    "prefix": "doppar-transaction",
+    "body": "#[Transaction(connection: ${1:null}, attempts: ${2:1})]",
+    "description": "Doppar #[Transaction] attribute."
+  },
+  "Doppar Bind Attribute": {
+    "prefix": "doppar-bind",
+    "body": "#[Bind(${1:ConcreteClass::class}, singleton: ${2:false})]",
+    "description": "Doppar #[Bind] parameter attribute."
+  },
+  "Doppar BindPayload Attribute": {
+    "prefix": "doppar-bind-payload",
+    "body": "#[BindPayload(strict: ${1:false})]",
+    "description": "Doppar #[BindPayload] parameter attribute."
+  },
+  "Doppar Model Attribute": {
+    "prefix": "doppar-model-attr",
+    "body": "#[Model(column: ${1:null}, exception: ${2:false})]",
+    "description": "Doppar #[Model] parameter attribute."
+  },
+  "Doppar Temporal Attribute": {
+    "prefix": "doppar-temporal",
+    "body": "#[Temporal(suffix: '${1:_history}', trackActor: ${2:false})]",
+    "description": "Doppar #[Temporal] model attribute."
+  },
+  "Doppar Computed Attribute": {
+    "prefix": "doppar-computed",
+    "body": "#[Computed]",
+    "description": "Doppar #[Computed] method attribute."
+  },
+  "Doppar Hook Attribute": {
+    "prefix": "doppar-hook",
+    "body": "#[Hook('${1:before_created}', when: ${2:null})]",
+    "description": "Doppar #[Hook] model lifecycle attribute."
+  },
+  "Doppar Hook Pair": {
+    "prefix": "doppar-hook-pair",
+    "body": [
+      "#[Hook('${1:before_created}')]",
+      "#[Hook('${2:before_updated}')]"
+    ],
+    "description": "Two stacked Doppar #[Hook] attributes."
+  },
+  "Doppar Watches Attribute": {
+    "prefix": "doppar-watches",
+    "body": "#[Watches(${1:WatcherClass::class}, when: ${2:null})]",
+    "description": "Doppar #[Watches] property attribute."
+  },
+  "Doppar Transform Attribute": {
+    "prefix": "doppar-transform",
+    "body": "#[Transform('${1:string}')]",
+    "description": "Doppar #[Transform] property attribute."
+  },
+  "Doppar CastToDate Attribute": {
+    "prefix": "doppar-cast-to-date",
+    "body": "#[CastToDate(format: '${1:Y-m-d}')]",
+    "description": "Deprecated Doppar #[CastToDate] attribute. Prefer #[ToDate]."
+  },
+  "Doppar ToString Attribute": {
+    "prefix": "doppar-to-string",
+    "body": "#[ToString]",
+    "description": "Doppar #[ToString] cast attribute."
+  },
+  "Doppar ToInteger Attribute": {
+    "prefix": "doppar-to-integer",
+    "body": "#[ToInteger]",
+    "description": "Doppar #[ToInteger] cast attribute."
+  },
+  "Doppar ToFloat Attribute": {
+    "prefix": "doppar-to-float",
+    "body": "#[ToFloat]",
+    "description": "Doppar #[ToFloat] cast attribute."
+  },
+  "Doppar ToBoolean Attribute": {
+    "prefix": "doppar-to-boolean",
+    "body": "#[ToBoolean]",
+    "description": "Doppar #[ToBoolean] cast attribute."
+  },
+  "Doppar ToDate Attribute": {
+    "prefix": "doppar-to-date",
+    "body": "#[ToDate]",
+    "description": "Doppar #[ToDate] cast attribute."
+  },
+  "Doppar ToDateTime Attribute": {
+    "prefix": "doppar-to-datetime",
+    "body": "#[ToDateTime]",
+    "description": "Doppar #[ToDateTime] cast attribute."
+  },
+  "Doppar ToTimestamp Attribute": {
+    "prefix": "doppar-to-timestamp",
+    "body": "#[ToTimestamp]",
+    "description": "Doppar #[ToTimestamp] cast attribute."
+  },
+  "Doppar ToArray Attribute": {
+    "prefix": "doppar-to-array",
+    "body": "#[ToArray]",
+    "description": "Doppar #[ToArray] cast attribute."
+  },
+  "Doppar ToJson Attribute": {
+    "prefix": "doppar-to-json",
+    "body": "#[ToJson]",
+    "description": "Doppar #[ToJson] cast attribute."
+  },
+  "Doppar ToObject Attribute": {
+    "prefix": "doppar-to-object",
+    "body": "#[ToObject]",
+    "description": "Doppar #[ToObject] cast attribute."
+  },
+  "Doppar ToCollection Attribute": {
+    "prefix": "doppar-to-collection",
+    "body": "#[ToCollection]",
+    "description": "Doppar #[ToCollection] cast attribute."
+  }
+}

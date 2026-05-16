@@ -1,0 +1,103 @@
+{
+  "name": "doppar-snippets",
+  "displayName": "Doppar Snippets",
+  "description": "Snippets and ODO language support for the Doppar framework.",
+  "version": "0.1.0",
+  "publisher": "doppar",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "./extension.js",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#0f172a",
+    "theme": "dark"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "extension.js",
+    "fileicons/**",
+    "icon.png",
+    "icons/**",
+    "language-configuration.json",
+    "package.json",
+    "snippets/**",
+    "syntaxes/**"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doppar/framework",
+    "directory": "tools/vscode/doppar-snippets"
+  },
+  "bugs": {
+    "url": "https://github.com/doppar/framework/issues"
+  },
+  "homepage": "https://doppar.com",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Snippets",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "doppar",
+    "odo",
+    "snippets",
+    "template",
+    "php"
+  ],
+  "activationEvents": [
+    "onLanguage:odo"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "odo",
+        "aliases": [
+          "ODO",
+          "odo"
+        ],
+        "extensions": [
+          ".odo.php"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/odo-language.svg",
+          "dark": "./icons/odo-language.svg"
+        }
+      }
+    ],
+    "configurationDefaults": {
+      "[odo]": {
+        "editor.defaultFormatter": "doppar.doppar-snippets",
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true
+      }
+    },
+    "iconThemes": [
+      {
+        "id": "doppar-icons",
+        "label": "Doppar Icons",
+        "path": "./fileicons/doppar-icon-theme.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "odo",
+        "scopeName": "text.html.odo",
+        "path": "./syntaxes/odo.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "odo",
+        "path": "./snippets/odo.json"
+      },
+      {
+        "language": "php",
+        "path": "./snippets/php.json"
+      }
+    ]
+  }
+}

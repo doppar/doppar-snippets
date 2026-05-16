@@ -1,0 +1,117 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "ODO",
+  "scopeName": "text.html.odo",
+  "fileTypes": [
+    "odo.php"
+  ],
+  "patterns": [
+    {
+      "include": "#odo-comment"
+    },
+    {
+      "include": "#odo-raw-echo"
+    },
+    {
+      "include": "#odo-escaped-echo"
+    },
+    {
+      "include": "#odo-echo"
+    },
+    {
+      "include": "#odo-directive"
+    },
+    {
+      "include": "text.html.php"
+    }
+  ],
+  "repository": {
+    "odo-comment": {
+      "name": "comment.block.odo",
+      "begin": "\\[\\[--",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.begin.odo"
+        }
+      },
+      "end": "--\\]\\]",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.end.odo"
+        }
+      }
+    },
+    "odo-raw-echo": {
+      "name": "meta.embedded.expression.raw.odo",
+      "begin": "\\[\\[!",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.odo"
+        }
+      },
+      "end": "!\\]\\]",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.odo"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.php"
+        }
+      ]
+    },
+    "odo-escaped-echo": {
+      "name": "meta.embedded.expression.escaped.odo",
+      "begin": "\\[\\[\\[",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.odo"
+        }
+      },
+      "end": "\\]\\]\\]",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.odo"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.php"
+        }
+      ]
+    },
+    "odo-echo": {
+      "name": "meta.embedded.expression.odo",
+      "begin": "\\[\\[",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.odo"
+        }
+      },
+      "end": "\\]\\]",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.odo"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.php"
+        }
+      ]
+    },
+    "odo-directive": {
+      "patterns": [
+        {
+          "name": "constant.character.escape.odo",
+          "match": "##\\w+(?:->\\w+)?"
+        },
+        {
+          "name": "keyword.control.odo",
+          "match": "(?<!\\w)#(?:if|elseif|else|endif|unless|endunless|isset|endisset|switch|case|default|break|endswitch|continue|exit|php|endphp|json|unset|for|endfor|foreach|endforeach|forelse|empty|endforelse|while|endwhile|extends|include|yield|section|endsection|show|append|stop|overwrite|method|csrf|auth|endauth|guest|endguest|errors|enderrors|error|enderror|vite|scope|elsescope|endscope|scopenot|elsescopenot|endscopenot|blank|endblank|notblank|endnotblank|solo|endsolo|inject|endinject|slot)\\b"
+        }
+      ]
+    }
+  }
+}

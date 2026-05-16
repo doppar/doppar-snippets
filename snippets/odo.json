@@ -1,0 +1,407 @@
+{
+  "ODO Echo": {
+    "prefix": [
+      "odo-echo",
+      "[["
+    ],
+    "body": "[[ ${1:\\$value} ]]",
+    "description": "Insert an escaped ODO echo tag with standard spacing."
+  },
+  "ODO Raw Echo": {
+    "prefix": [
+      "odo-raw",
+      "[[!"
+    ],
+    "body": "[[! ${1:\\$html} !]]",
+    "description": "Insert a raw ODO echo tag with standard spacing."
+  },
+  "ODO Triple Echo": {
+    "prefix": [
+      "odo-escaped",
+      "[[["
+    ],
+    "body": "[[[ ${1:\\$value} ]]]",
+    "description": "Insert a triple ODO echo tag with standard spacing."
+  },
+  "ODO Comment": {
+    "prefix": [
+      "odo-comment",
+      "[[--"
+    ],
+    "body": "[[-- ${1:comment} --]]",
+    "description": "Insert an ODO comment block."
+  },
+  "ODO Extends": {
+    "prefix": [
+      "odo-extends",
+      "#extends"
+    ],
+    "body": "#extends('${1:layouts.app}')",
+    "description": "Extend a parent ODO layout."
+  },
+  "ODO Section": {
+    "prefix": [
+      "odo-section",
+      "#section"
+    ],
+    "body": [
+      "#section('${1:content}')",
+      "    $0",
+      "#endsection"
+    ],
+    "description": "Create a named section."
+  },
+  "ODO Yield": {
+    "prefix": [
+      "odo-yield",
+      "#yield"
+    ],
+    "body": "#yield('${1:content}')",
+    "description": "Render a named section."
+  },
+  "ODO Include": {
+    "prefix": [
+      "odo-include",
+      "#include"
+    ],
+    "body": "#include('${1:partials.header}', ${2:[]})",
+    "description": "Include another ODO view with optional data."
+  },
+  "ODO Page Skeleton": {
+    "prefix": "odo-page",
+    "body": [
+      "#extends('${1:layouts.app}')",
+      "#section('title')",
+      "    ${2:Page Title}",
+      "#endsection",
+      "#section('content')",
+      "    $0",
+      "#endsection"
+    ],
+    "description": "Page scaffold based on the default Doppar ODO layout flow."
+  },
+  "ODO Layout Skeleton": {
+    "prefix": "odo-layout",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"${1:en}\">",
+      "    <head>",
+      "        <meta charset=\"UTF-8\" />",
+      "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />",
+      "        <title>#yield('title')</title>",
+      "        <meta name=\"csrf-token\" content=\"[[ csrf_token() ]]\" />",
+      "        #vite('${2:resources/js/app.js}')",
+      "    </head>",
+      "    <body>",
+      "        #yield('content')",
+      "    </body>",
+      "</html>"
+    ],
+    "description": "Layout scaffold for resources/views/layouts/app.odo.php."
+  },
+  "ODO If": {
+    "prefix": [
+      "odo-if",
+      "#if"
+    ],
+    "body": [
+      "#if (${1:\\$condition})",
+      "    $0",
+      "#endif"
+    ],
+    "description": "ODO if block with standard spacing before the condition."
+  },
+  "ODO If Else": {
+    "prefix": "odo-ifelse",
+    "body": [
+      "#if (${1:\\$condition})",
+      "    ${2:// true branch}",
+      "#else",
+      "    ${3:// false branch}",
+      "#endif"
+    ],
+    "description": "ODO if/else block."
+  },
+  "ODO Elseif": {
+    "prefix": [
+      "odo-elseif",
+      "#elseif"
+    ],
+    "body": "#elseif (${1:\\$condition})",
+    "description": "ODO elseif directive with standard spacing."
+  },
+  "ODO Unless": {
+    "prefix": [
+      "odo-unless",
+      "#unless"
+    ],
+    "body": [
+      "#unless (${1:\\$condition})",
+      "    $0",
+      "#endunless"
+    ],
+    "description": "ODO unless block."
+  },
+  "ODO Isset": {
+    "prefix": [
+      "odo-isset",
+      "#isset"
+    ],
+    "body": [
+      "#isset(${1:\\$value})",
+      "    $0",
+      "#endisset"
+    ],
+    "description": "ODO isset block."
+  },
+  "ODO Switch": {
+    "prefix": [
+      "odo-switch",
+      "#switch"
+    ],
+    "body": [
+      "#switch (${1:\\$value})",
+      "    #case (${2:'example'})",
+      "        $0",
+      "        #break",
+      "    #default",
+      "        ${3:// default branch}",
+      "#endswitch"
+    ],
+    "description": "ODO switch block."
+  },
+  "ODO Foreach": {
+    "prefix": [
+      "odo-foreach",
+      "#foreach"
+    ],
+    "body": [
+      "#foreach (${1:\\$items} as ${2:\\$item})",
+      "    $0",
+      "#endforeach"
+    ],
+    "description": "ODO foreach loop."
+  },
+  "ODO Forelse": {
+    "prefix": [
+      "odo-forelse",
+      "#forelse"
+    ],
+    "body": [
+      "#forelse (${1:\\$items} as ${2:\\$item})",
+      "    ${3:[[ \\$item ]]}",
+      "#empty",
+      "    ${4:<p>No data found.</p>}",
+      "#endforelse"
+    ],
+    "description": "ODO forelse block with #empty branch."
+  },
+  "ODO For": {
+    "prefix": [
+      "odo-for",
+      "#for"
+    ],
+    "body": [
+      "#for (${1:\\$i = 0}; ${2:\\$i < 10}; ${3:\\$i++})",
+      "    $0",
+      "#endfor"
+    ],
+    "description": "ODO for loop."
+  },
+  "ODO While": {
+    "prefix": [
+      "odo-while",
+      "#while"
+    ],
+    "body": [
+      "#while (${1:\\$condition})",
+      "    $0",
+      "#endwhile"
+    ],
+    "description": "ODO while loop."
+  },
+  "ODO Auth": {
+    "prefix": [
+      "odo-auth",
+      "#auth"
+    ],
+    "body": [
+      "#auth",
+      "    $0",
+      "#endauth"
+    ],
+    "description": "Render a block for authenticated users."
+  },
+  "ODO Guest": {
+    "prefix": [
+      "odo-guest",
+      "#guest"
+    ],
+    "body": [
+      "#guest",
+      "    $0",
+      "#endguest"
+    ],
+    "description": "Render a block for guests."
+  },
+  "ODO Error": {
+    "prefix": [
+      "odo-error",
+      "#error"
+    ],
+    "body": [
+      "#error('${1:field}')",
+      "    [[ ${2:\\$message} ]]",
+      "#enderror"
+    ],
+    "description": "Render a single validation error."
+  },
+  "ODO Errors": {
+    "prefix": [
+      "odo-errors",
+      "#errors"
+    ],
+    "body": [
+      "#errors",
+      "    $0",
+      "#enderrors"
+    ],
+    "description": "Wrap a block that depends on session errors."
+  },
+  "ODO Form Helpers": {
+    "prefix": "odo-form",
+    "body": [
+      "<form method=\"POST\" action=\"${1:/}\">",
+      "    #csrf",
+      "    ${2:#method('PUT')}",
+      "",
+      "    $0",
+      "</form>"
+    ],
+    "description": "Generate a form with CSRF and an optional spoofed method."
+  },
+  "ODO CSRF": {
+    "prefix": [
+      "odo-csrf",
+      "#csrf"
+    ],
+    "body": "#csrf",
+    "description": "Insert a CSRF hidden input."
+  },
+  "ODO Method": {
+    "prefix": [
+      "odo-method",
+      "#method"
+    ],
+    "body": "#method('${1:PUT}')",
+    "description": "Insert a spoofed HTTP method field."
+  },
+  "ODO Vite": {
+    "prefix": [
+      "odo-vite",
+      "#vite"
+    ],
+    "body": "#vite('${1:resources/js/app.js}')",
+    "description": "Include the Vite entry for the current page."
+  },
+  "ODO Scope": {
+    "prefix": [
+      "odo-scope",
+      "#scope"
+    ],
+    "body": [
+      "#scope('${1:ability}')",
+      "    $0",
+      "#endscope"
+    ],
+    "description": "Guard a block with Doppar Authorizer."
+  },
+  "ODO Scope Not": {
+    "prefix": [
+      "odo-scopenot",
+      "#scopenot"
+    ],
+    "body": [
+      "#scopenot('${1:ability}')",
+      "    $0",
+      "#endscopenot"
+    ],
+    "description": "Inverse Authorizer guard block."
+  },
+  "ODO Blank": {
+    "prefix": [
+      "odo-blank",
+      "#blank"
+    ],
+    "body": [
+      "#blank(${1:\\$value})",
+      "    $0",
+      "#endblank"
+    ],
+    "description": "Render content when the value is blank."
+  },
+  "ODO Not Blank": {
+    "prefix": [
+      "odo-notblank",
+      "#notblank"
+    ],
+    "body": [
+      "#notblank(${1:\\$value})",
+      "    $0",
+      "#endnotblank"
+    ],
+    "description": "Render content when the value is not blank."
+  },
+  "ODO Solo": {
+    "prefix": [
+      "odo-solo",
+      "#solo"
+    ],
+    "body": [
+      "#solo",
+      "    $0",
+      "#endsolo"
+    ],
+    "description": "Render a block only once."
+  },
+  "ODO Inject": {
+    "prefix": [
+      "odo-inject",
+      "#inject"
+    ],
+    "body": [
+      "#inject('${1:scripts}')",
+      "    $0",
+      "#endinject"
+    ],
+    "description": "Push content into an ODO stack."
+  },
+  "ODO Slot": {
+    "prefix": [
+      "odo-slot",
+      "#slot"
+    ],
+    "body": "#slot('${1:scripts}')",
+    "description": "Render an ODO stack slot."
+  },
+  "ODO JSON": {
+    "prefix": [
+      "odo-json",
+      "#json"
+    ],
+    "body": "#json(${1:\\$data})",
+    "description": "Echo JSON from a PHP value."
+  },
+  "ODO PHP Block": {
+    "prefix": [
+      "odo-php",
+      "#php"
+    ],
+    "body": [
+      "#php",
+      "    ${1:// PHP logic}",
+      "#endphp"
+    ],
+    "description": "Raw PHP block in an ODO file."
+  }
+}
